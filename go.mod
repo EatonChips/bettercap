@@ -1,4 +1,4 @@
-module github.com/bettercap/bettercap
+module github.com/eatonchips/bettercap
 
 go 1.16
 
