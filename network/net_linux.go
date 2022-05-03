@@ -25,6 +25,7 @@ func SetInterfaceChannel(iface string, channel int) error {
 
 	if core.HasBinary("iw") {
 		// Debug("SetInterfaceChannel(%s, %d) iw based", iface, channel)
+		_, _ = core.Exec("ifconfig", []string{iface, "down"})
 		out, err := core.Exec("iw", []string{"dev", iface, "set", "channel", fmt.Sprintf("%d", channel)})
 		if err != nil {
 			return fmt.Errorf("iw: out=%s err=%s", out, err)
